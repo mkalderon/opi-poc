@@ -54,7 +54,7 @@ jobs:
 
     - name: Build and push Docker image
       id: build-and-push
-      uses: docker/build-push-action@c84f38281176d4c9cdb1626ffafcd6b3911b5d94
+      uses: docker/build-push-action@37abcedcc1da61a57767b7588cb9d03eb57e28b3
       with:
         context: storage/${{ matrix.package }}
         platforms: linux/amd64,linux/arm64
@@ -119,7 +119,7 @@ jobs:
     # https://github.com/docker/build-push-action
     - name: Build Docker image
       id: build
-      uses: docker/build-push-action@c84f38281176d4c9cdb1626ffafcd6b3911b5d94
+      uses: docker/build-push-action@37abcedcc1da61a57767b7588cb9d03eb57e28b3
       with:
         context: storage/spdk
         push: false
@@ -169,7 +169,7 @@ jobs:
     # built, and we're just doing the push to ghcr.io
     - name: Push Docker image
       id: push-to-ghcr
-      uses: docker/build-push-action@c84f38281176d4c9cdb1626ffafcd6b3911b5d94
+      uses: docker/build-push-action@37abcedcc1da61a57767b7588cb9d03eb57e28b3
       if: github.event_name != 'pull_request'
       with:
         context: storage/spdk
